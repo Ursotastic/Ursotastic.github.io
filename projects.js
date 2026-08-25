@@ -24,11 +24,11 @@
 
 const projects = [
   {
-    title: "My Cool Unreal Project",
-    studio: "Solo Project",              // or team/company name
-    dates: "Jan 2026 - Present",
-    description: "A short, punchy description of what the project is, what you built, and what tech was used (e.g. C++ interaction system, Blueprint UI, AI perception).",
-    tags: ["Unreal Engine", "C++", "Gameplay Systems"],
+    title: "World Interactive System",
+    studio: "School team project (NDA)",              // or team/company name
+    dates: "July 2026 - August 2026",
+    description: "A school project towards a external company. My group were to create a ambient NPC dialogue system & a electrical system for their game in Unreal Engine 5.6, C++, Blueprints, interaction systems. Goal was to make systems as modular and decpupled as possible to integrate to the clients game.",
+    tags: ["Unreal Engine", "C++", "Blueprints", "Interactive Systems"],
     media: { type: "image", src: "media/project1-cover.jpg" },
     link: "https://github.com/yourusername/your-repo",
     linkLabel: "View on GitHub",
@@ -37,10 +37,10 @@ const projects = [
   {
     title: "Escape Room Puzzle Prototype",
     studio: "Team Project (course)",
-    dates: "Sep 2025 - Dec 2025",
+    dates: "June 2026 - July 2026",
     description: "Designed and implemented modular puzzle and interaction systems, including door logic, item pickups, and sound-triggered events, in a small team using Trello and Git.",
     tags: ["Blueprints", "Puzzle Design", "Git"],
-    media: { type: "youtube", src: "dQw4w9WgXcQ" },
+    media: { type: "youtube", src: "NpEaa2P7qZI" },
     link: "",
     linkLabel: "",
     featured: true
@@ -60,25 +60,13 @@ const projects = [
 
 /*
   ============================================================
-   AWARDS / HIGHLIGHTS (optional)
-  ============================================================
-  Add or remove strings freely. Delete the whole "awards" const
-  and its section in index.html if you don't want this block.
-*/
-const awards = [
-  "Example: Best Student Project — Game Dev Course Showcase 2026",
-  "Example: Finalist — Local Game Jam"
-];
-
-/*
-  ============================================================
    SOCIAL / CONTACT LINKS
   ============================================================
   Add as many as you like. "label" is what's shown, "url" is where it goes.
 */
 const socialLinks = [
-  { label: "GitHub", url: "https://github.com/yourusername" },
-  { label: "LinkedIn", url: "https://www.linkedin.com/in/yourusername" },
-  { label: "Email", url: "mailto:you@example.com" },
+  { label: "GitHub", url: "https://github.com/Ursotastic" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/simon-bergstedt-4bb16a180" },
+  { label: "Email", url: "mailto:simon.bergstedt1@gmail.com" },
   { label: "Itch.io", url: "https://yourusername.itch.io" }
 ];
