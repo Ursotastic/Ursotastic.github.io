@@ -1,17 +1,11 @@
-// This file reads the data in projects.js and builds the page.
-// You normally don't need to edit this file — just edit projects.js.
+// Builds the HOMEPAGE cards from projects.js. Edit projects.js, not this file.
 
 function buildMediaHTML(media) {
   if (!media) return "";
-  if (media.type === "image") {
-    return `<img src="${media.src}" alt="Project media" loading="lazy" />`;
-  }
-  if (media.type === "video") {
-    return `<video src="${media.src}" muted loop playsinline controls></video>`;
-  }
+  if (media.type === "image") return `<img src="${media.src}" alt="Project media" loading="lazy" />`;
+  if (media.type === "video") return `<video src="${media.src}" muted loop playsinline controls></video>`;
   if (media.type === "youtube") {
-    return `<iframe width="100%" height="100%"
-              src="https://www.youtube.com/embed/${media.src}"
+    return `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${media.src}"
               title="Project video" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen style="aspect-ratio:16/9;"></iframe>`;
@@ -24,21 +18,18 @@ function buildTagsHTML(tags) {
   return `<div class="card-tags">${tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>`;
 }
 
-function buildLinkHTML(link, label) {
-  if (!link) return "";
-  return `<a class="card-link" href="${link}" target="_blank" rel="noopener">${label || "View Project"} &rarr;</a>`;
-}
-
+// Card now links to the internal detail page (project.html?id=...)
+// The external "link" (e.g. GitHub repo) still shows as a secondary button.
 function buildFeaturedCard(p) {
   return `
     <article class="project-card featured">
-      <div class="media-wrap">${buildMediaHTML(p.media)}</div>
+      <a class="media-wrap" href="project.html?id=${encodeURIComponent(p.id)}">${buildMediaHTML(p.media)}</a>
       <div class="card-body">
-        <h3 class="card-title">${p.title}</h3>
+        <h3 class="card-title"><a href="project.html?id=${encodeURIComponent(p.id)}">${p.title}</a></h3>
         <p class="card-meta">${p.studio ? p.studio + " • " : ""}${p.dates || ""}</p>
         <p class="card-desc">${p.description || ""}</p>
         ${buildTagsHTML(p.tags)}
-        ${buildLinkHTML(p.link, p.linkLabel)}
+        <a class="card-link" href="project.html?id=${encodeURIComponent(p.id)}">Read more &rarr;</a>
       </div>
     </article>`;
 }
@@ -46,13 +37,13 @@ function buildFeaturedCard(p) {
 function buildGridCard(p) {
   return `
     <article class="project-card grid-item">
-      <div class="media-wrap">${buildMediaHTML(p.media)}</div>
+      <a class="media-wrap" href="project.html?id=${encodeURIComponent(p.id)}">${buildMediaHTML(p.media)}</a>
       <div class="card-body">
-        <h3 class="card-title">${p.title}</h3>
+        <h3 class="card-title"><a href="project.html?id=${encodeURIComponent(p.id)}">${p.title}</a></h3>
         <p class="card-meta">${p.studio ? p.studio + " • " : ""}${p.dates || ""}</p>
         <p class="card-desc">${p.description || ""}</p>
         ${buildTagsHTML(p.tags)}
-        ${buildLinkHTML(p.link, p.linkLabel)}
+        <a class="card-link" href="project.html?id=${encodeURIComponent(p.id)}">Read more &rarr;</a>
       </div>
     </article>`;
 }
@@ -61,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const featuredContainer = document.getElementById("featured-projects");
   const gridContainer = document.getElementById("all-projects-grid");
 
-  if (typeof projects !== "undefined") {
+  if (typeof projects !== "undefined" && featuredContainer && gridContainer) {
     const featured = projects.filter(p => p.featured);
     const rest = projects.filter(p => !p.featured);
 
