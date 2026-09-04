@@ -27,7 +27,7 @@ a:hover { text-decoration: underline; }
 /* NAVBAR */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   max-width: var(--max-width);
   margin: 0 auto;
@@ -67,7 +67,7 @@ a:hover { text-decoration: underline; }
 {
 	position: absolute;
 	inset: 0;
-	background: rgba(10, 12, 18, 0.6);
+	background: rgba(10, 12, 18, 0.70);
 	z-index: 1;
 }
 .hero-content 
