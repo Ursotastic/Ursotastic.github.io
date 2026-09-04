@@ -51,7 +51,7 @@ const projects = [
     studio: "Team Project (course)",
     dates: "June 2026 - July 2026",
     description: "Designed and implemented modular puzzle and interaction systems, including door logic, item pickups, and sound-triggered events, in a small team using Trello and Git.",
-    tags: ["Blueprints", "Puzzle Design", "Git"],
+    tags: ["Unreal Engine", "C++", "Blueprints", "Game systems", "Puzzle Design"],
     media: { type: "youtube", src: "NpEaa2P7qZI" },
     link: "",
     linkLabel: "",

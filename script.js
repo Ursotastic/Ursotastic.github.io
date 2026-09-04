@@ -13,6 +13,11 @@ function buildMediaHTML(media) {
   return "";
 }
 
+function buildTagsHTML(tags) {
+  if (!tags || !tags.length) return "";
+  return `<div class="card-tags">${tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>`;
+}
+
 // Compact showcase card: text on top, media below with a "Read more" overlay button.
 function buildFeaturedCard(p) {
   const lockOverlay = p.locked ? `<div class="lock-overlay">&#128274;</div>` : "";
@@ -22,6 +27,7 @@ function buildFeaturedCard(p) {
         <h3 class="card-title"><a href="project.html?id=${encodeURIComponent(p.id)}">${p.title}</a></h3>
         <p class="card-desc">${p.description || ""}</p>
         <p class="card-meta">Developed by: <strong>${p.studio || ""}</strong><br />${p.dates || ""}</p>
+        ${buildTagsHTML(p.tags)}
       </div>
       <a class="media-wrap" href="project.html?id=${encodeURIComponent(p.id)}">
         ${lockOverlay}
@@ -30,7 +36,6 @@ function buildFeaturedCard(p) {
       </a>
     </article>`;
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   const featuredContainer = document.getElementById("featured-projects");
 
