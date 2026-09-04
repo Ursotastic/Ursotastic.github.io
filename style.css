@@ -21,10 +21,9 @@ body {
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-
 .accent { color: var(--accent); }
 
-/* NAVBAR */
+/* NAVBAR - fixed, semi-transparent, same on every page */
 .navbar {
   position: fixed;
   top: 0;
@@ -45,7 +44,7 @@ a:hover { text-decoration: underline; }
 .nav-links a { color: var(--text); font-weight: 500; }
 .nav-links a:hover { color: var(--accent); }
 
-/* HERO */
+/* HERO (homepage only) */
 .hero {
   position: relative;
   overflow: hidden;
@@ -55,42 +54,38 @@ a:hover { text-decoration: underline; }
   border-bottom: 1px solid var(--card-border);
   background: #0f1117;
 }
-.hero-video{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	height: 100%;
-	min-width: 100%;
-	min-height: 100%;
-	object-fit: cover;
-	transform: translate(-50%, -50%);
-	z-index: 0;
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }
-.hero-overlay
-{
-	position: absolute;
-	inset: 0;
-	background: rgba(10, 12, 18, 0.70);
-	z-index: 1;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 12, 18, 0.70);
+  z-index: 1;
 }
-.hero-content 
-{
-	position: relative;
-	z-index: 2;
-	max-width: var(--max-width);
-  	margin: 0 auto;
-  	padding: 5rem 1.5rem 6rem;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem 1.5rem 6rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .hero-greeting { font-size: 1.1rem; color: var(--text-dim); margin: 0; }
-.hero-title { font-size: 2.6rem; margin: 0.3rem 0; text-shadow: 0 2px 12px rgba(0,0,0,0,.6); }
+.hero-title { font-size: 2.6rem; margin: 0.3rem 0; text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
 .hero-sub { color: var(--text-dim); font-size: 1.05rem; }
-.small-hero .navbar { padding-bottom: 1.2rem; }
 
 /* SECTIONS */
 .section {
@@ -98,86 +93,141 @@ a:hover { text-decoration: underline; }
   margin: 0 auto;
   padding: 4rem 1.5rem;
 }
-.alt-bg { background: var(--bg-alt); max-width: 100%; }
-.alt-bg > * { max-width: var(--max-width); margin-left: auto; margin-right: auto; }
 .section-title {
   font-size: 1.7rem;
   margin-bottom: 2rem;
   border-left: 4px solid var(--accent);
   padding-left: 0.7rem;
 }
+/* For pages with no hero (games.html, project.html) — clears the fixed navbar */
+.page-main { padding-top: 7rem; }
 
-/* FEATURED PROJECT CARDS (large, one per row) */
-.featured-list { display: flex; flex-direction: column; gap: 2.5rem; }
-.project-card.featured {
+/* FEATURED SHOWCASE (homepage top 3, compact cards) */
+.featured-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.project-card.featured {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 14px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-.project-card.featured .media-wrap { position: relative; background: #000; display: block; }
+.project-card.featured .card-body { padding: 1.4rem 1.4rem 1rem; }
+.project-card.featured .card-title a { color: var(--text); font-size: 1.15rem; }
+.project-card.featured .card-title a:hover { color: var(--accent); }
+.project-card.featured .card-desc { font-size: 0.9rem; color: var(--text-dim); margin: 0.5rem 0; }
+.project-card.featured .card-meta { font-size: 0.8rem; color: var(--text-dim); margin: 0; }
+.project-card.featured .media-wrap {
+  position: relative;
+  display: block;
+  aspect-ratio: 16/9;
+  background: #000;
+}
 .project-card.featured .media-wrap img,
-.project-card.featured .media-wrap video {
-  width: 100%; height: 100%; object-fit: cover; display: block;
+.project-card.featured .media-wrap video,
+.project-card.featured .media-wrap iframe {
+  width: 100%; height: 100%; object-fit: cover; display: block; border: 0;
 }
-.project-card.featured .card-body { padding: 1.8rem 1.8rem 1.8rem 0; display: flex; flex-direction: column; justify-content: center; }
-.card-title { font-size: 1.4rem; margin: 0 0 0.3rem; }
-.card-title a { color: var(--text); }
-.card-title a:hover { color: var(--accent); }
-.card-meta { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 0.8rem; }
-.card-desc { margin-bottom: 1rem; }
-.card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
-.tag {
-  background: rgba(111, 214, 255, 0.12);
-  color: var(--accent);
+.read-more-pill {
+  position: absolute;
+  bottom: 0.7rem;
+  right: 0.7rem;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  padding: 0.35rem 0.9rem;
   border-radius: 20px;
-  padding: 0.2rem 0.7rem;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  z-index: 2;
 }
-.card-link { font-weight: 600; }
-
-@media (max-width: 800px) {
-  .project-card.featured { grid-template-columns: 1fr; }
-  .project-card.featured .card-body { padding: 1.5rem; }
+.lock-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 22, 30, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  z-index: 3;
 }
 
-/* GRID OF SMALLER PROJECT CARDS */
+/* "VIEW ALL PROJECTS" / toggle-style button */
+.toggle-btn {
+  display: block;
+  width: fit-content;
+  margin: 2.5rem auto 0;
+  padding: 0.65rem 2rem;
+  border: 1px solid var(--accent);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+}
+.toggle-btn:hover { background: var(--accent); color: #0f1117; text-decoration: none; }
+
+/* GRID OF PROJECT CARDS (games.html) */
 .grid-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 .project-card.grid-item {
+  position: relative;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  color: var(--text);
 }
-.project-card.grid-item .media-wrap { aspect-ratio: 16/9; background: #000; display: block; }
+.project-card.grid-item:hover { border-color: var(--accent); }
+.project-card.grid-item .media-wrap {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #000;
+}
 .project-card.grid-item .media-wrap img,
 .project-card.grid-item .media-wrap video {
   width: 100%; height: 100%; object-fit: cover; display: block;
 }
-.project-card.grid-item .card-body { padding: 1rem 1.2rem 1.4rem; }
+.project-card.grid-item .card-body { padding: 0.9rem 1rem 1.1rem; }
+.card-title-sm { font-size: 1rem; margin: 0 0 0.2rem; }
+.card-meta-sm { font-size: 0.78rem; color: var(--text-dim); margin: 0 0 0.6rem; }
+.grid-arrow {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+}
+.card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag {
+  background: rgba(111, 214, 255, 0.12);
+  color: var(--accent);
+  border-radius: 20px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.75rem;
+}
 
 /* ABOUT */
 .about-content { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
 .about-photo { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); }
 .about-content p { flex: 1; min-width: 260px; }
-
-/* AWARDS */
-.awards-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.7rem; }
-.awards-list li {
-  background: var(--card-bg);
-  border-left: 3px solid var(--accent);
-  padding: 0.7rem 1rem;
-  border-radius: 6px;
-}
 
 /* SOCIAL LINKS */
 .social-links { display: flex; flex-wrap: wrap; gap: 1rem; }

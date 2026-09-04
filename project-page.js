@@ -33,11 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const project = projects.find(p => p.id === id);
 
   if (!project) {
-    container.innerHTML = `<p>Project not found. <a href="index.html">Go back home</a>.</p>`;
+    container.innerHTML = `<p>Project not found. <a href="games.html">Go back to all projects</a>.</p>`;
     return;
   }
 
-  document.title = `${project.title} — Your Name`;
+  document.title = `${project.title} — Simon Bergstedt`;
 
   const tagsHTML = (project.tags || [])
     .map(t => `<span class="tag">${t}</span>`).join("");
