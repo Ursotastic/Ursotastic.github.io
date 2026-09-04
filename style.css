@@ -37,7 +37,7 @@ a:hover { text-decoration: underline; }
 }
 .nav-name { font-weight: 700; font-size: 1.1rem; }
 .nav-name a { color: var(--text); }
-.nav-links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; margin: 0; margin-right: auto; padding: 0; }
 .nav-links a { color: var(--text); font-weight: 500; }
 .nav-links a:hover { color: var(--accent); }
 
