@@ -241,6 +241,21 @@ a:hover { text-decoration: underline; }
 }
 .social-links a:hover { border-color: var(--accent); color: var(--accent); }
 
+.contact-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.contact-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  flex-shrink: 0;
+}
+
 /* FOOTER */
 .footer {
   text-align: center;
