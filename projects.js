@@ -35,13 +35,18 @@ const projects = [
     dates: "July 2026 - August 2026",
     description: "A school project towards a external company. My group were to create a ambient NPC dialogue system & a electrical system for their game in Unreal Engine 5.6, C++, Blueprints, interaction systems. Goal was to make systems as modular and decoupled as possible to integrate to the clients game.",
     tags: ["Unreal Engine", "C++", "Blueprints", "Interactive Systems"],
-    media: { type: "image", src: "media/project1-cover.jpg" },
-    link: "https://github.com/yourusername/your-repo",
-    linkLabel: "View on GitHub",
+    media: { type: "youtube", src: "FL50QjpVDX0" },
+    link: "",
+    linkLabel: "",
     featured: true,
     locked: false,
     details: [
-      "Add the longer write-up for this project here — your role, the systems you personally built (e.g. the NPC dialogue system or electrical system), and any interesting technical decisions or challenges since it was NDA/client work."
+      "This was a one-sprint-per-week team project with an external client. Our group of six built two standalone Unreal Engine 5.6 systems: an event-driven ambient NPC dialogue system and an electrical propagation system. The 	goal was for both to be modular, decoupled, easy for designers to use, and ready to drop into the client's existing game.",
+      "<strong>My role:</strong> I was project leader and handled documentation, integration and feature programming. I managed the merge to main, ran the sprint reviews, and did the final integration pass before each review. I 	also co-developed the ElectricalPropagation plugin with a teammate.",
+      "<strong>Electrical system:</strong> This is a standalone plugin built in layers. A world subsystem registry holds a graph of nodes. Any actor becomes part of the network by adding an <em>ElectricityNodeComponent</em>. 	Nodes tell the graph when their power changes through a delegate, and the graph recalculates power from the active sources. Each room has its own fusebox node, so turning off the generator cuts power everywhere, while 	turning off one fusebox only cuts that room. Rooms are wired in a star topology, but the connection API is general enough to support room-to-room propagation later.",
+      "<strong>Dialogue system:</strong> NPCs talk to each other and react to world events. A Game Instance Subsystem server picks lines. A dialogue component on each actor holds its context as GameplayTags, and a playback 	component handles audio. Lines are chosen by tag matching, priority and cooldowns. Designers write the content in a browser-based authoring tool that exports JSON, which Unreal imports at startup.",
+      "<strong>Demo level:</strong> Separate rooms show each feature on its own. Switching a lamp on or off interrupts an NPC conversation, and the NPCs react to the lamp's new power state. Another room shows NPCs reacting when 	water hits a live electrical source.",
+      "<strong>Because of the NDA,</strong> I can't show the client's game or share the repository publicly."
     ],
     gallery: []
   },
