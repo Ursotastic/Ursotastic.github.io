@@ -87,7 +87,7 @@ const projects = [
     details: [
       "DogKnight Adventure was my first full group project, a 5-week team project made in Unity with C#. My main role was UI/HUD programmer and designer. I also worked on gameplay, combat features, on documentation and 	build 	tasks.",
       "<strong>UI and HUD:</strong> I made early design sketches, then built most of the UI. The UI reads the data of the equipped potions and abilities, checks their cooldowns, and uses interfaces to decide whether each one can 	be used. Because of this, the UI works with any ability, including ones with their own cooldowns and rules, without UI code changes. I designed it this way because we expected many abilities to be added. When requirements 	changed, I reworked parts of it.",
-      "<strong>Gameplay features:</strong> I implemented the experience system. I also redesigned the second ability. It was originally a 'nuke' that cleared the whole level, and I changed it into a usable part of normal 	combat.",
+      "<strong>Gameplay features:</strong> I implemented the experience system. I also redesigned the second ability. It was originally a full map bomb that cleared the whole level, and I changed it into a usable part of normal 	combat.",
       "<strong>Team work:</strong> We had no official project lead. I worked with the technical lead on coordination, communication and UI direction. The project taught me a lot about version control, merge conflicts and task 	ownership, and I now start new projects with clearer communication and ownership rules."
     ],
     gallery: []
