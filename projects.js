@@ -92,28 +92,33 @@ const projects = [
     ],
     gallery: []
   },
-  {
+    {
     id: "tricky-tower-clone",
     title: "TrickyTowerClone",
-    studio: "Unity Project (optional school assignment)",
-    dates: "TBD",
-    description: "Add a short description here once you've filled in details for this Unity project.",
-    tags: ["Unity", "C#"],
-    media: { type: "image", src: "media/tricky-tower-clone-cover.jpg" },
-    link: "",
-    linkLabel: "",
+    studio: "Unity project (optional school assignment)",
+    dates: "November, 2025",
+    description: "A physics-based tower builder in the style of Tetris, made in Unity and C#. It was my first proper Unity project, and it is playable on itch.io.",
+    tags: ["Unity", "C#", "Physics", "Gameplay Programming"],
+    media: { type: "image", src: "media/trickytower.png" },
+    link: "https://simonbergstedt.itch.io/trickytowerclone",
+    linkLabel: "Play on itch.io",
     featured: false,
     locked: false,
     details: [
-      "Add the longer write-up here — what the assignment asked for, and what you built."
+      "TrickyTowerClone is my version of Tricky Towers, a modern take on Tetris where you stack blocks into a tower using physics. It was an optional school assignment to remake a classic game, and it was the first proper Unity 	project I did in schoo0l. Duration of the assignment was 2 weeks.",
+      "<strong>Main challenge:</strong> The hardest decision was block placement, specifically whether the blocks should snap into place. I tried it and ended up with no snapping. The blocks follow the physics, which makes the 	tower easy to knock over and the game harder, like the original.",
+      "<strong>What I learned:</strong> Making my own Tetris blocks was much harder than I expected. Getting the shapes and collisions to behave smoothly with physics took a lot of work. The project taught me the basics of C# in 	Unity and showed me how much detail goes into a game that feels simple.",
+      "You can play the game in your browser on itch.io using the button below."
     ],
-    gallery: []
+    gallery: [
+      { type: "image", src: "media/trickyprojectpicture.png" }
+    ]
   },
   {
     id: "bonuses-algorithms-pathfinding",
     title: "Bonuses (Data Algorithms & Pathfinding)",
     studio: "Raylib Assignments",
-    dates: "TBD",
+    dates: "coming soon to the portfolio!",
     description: "Add a short description here once you've decided which Raylib assignment(s) to showcase (e.g. data structures, algorithms, pathfinding).",
     tags: ["Raylib", "C++", "Algorithms", "Pathfinding"],
     media: { type: "image", src: "media/bonuses-cover.jpg" },
@@ -129,8 +134,8 @@ const projects = [
     {
     id: "ai-perception",
     title: "AI Perception: Stealth Guards",
-    studio: "Course project",
-    dates: "2 weeks",
+    studio: "Course project (2-3 weeks)",
+    dates: "May, 2026",
     description: "A stealth prequel scene for DogKnight Adventure, built in Unreal Engine 5. Two guard types use AI Perception, with sight and hearing, behaviour trees and a team alert system to patrol, investigate and chase the player.",
     tags: ["AI Perception", "Behaviour Trees", "Blueprints", "Unreal Engine", "Stealth AI"],
     media: { type: "youtube", src: "tn0Ccm_aN38" },
@@ -139,7 +144,7 @@ const projects = [
     featured: false,
     locked: false,
     details: [
-      "This is an AI guard system built in Unreal Engine 5 as a prequel scene to DogKnight Adventure, a dungeon crawler RPG. DogKnight must sneak through a night-time forest past patrolling guards before entering the dungeon. If 	a guard catches him, the level resets and he respawns at the start.",
+      "This is an AI guard system built assignment, in Unreal Engine 5 as a prequel scene to DogKnight Adventure, a dungeon crawler RPG. DogKnight must sneak through a night-time forest past patrolling guards before entering the dungeon. If 	a guard catches him, the level resets and he respawns at the start.",
       "<strong>Two guard types:</strong> Sight Guards (blue glow) detect DogKnight visually and chase him. Hearing Guards (red glow) only react to sound and investigate where it came from. Both share a parent class, <em>	BP_Guard_Base</em>, but each type has its own Behaviour Tree, Blackboard and AI Controller.",
       "<strong>Behaviour Trees:</strong> Both trees use a Selector at the root. The Sight Guard has three branches in priority order: Chase, Investigate and Patrol. The Hearing Guard has no Chase branch, so it can only 	investigate or patrol. Chase and Investigate are driven by Blackboard keys (EnemyActor and InvestigateLocation) with decorators that abort lower-priority branches. Patrol uses a custom task that picks a random point 	from each guard's own patrol points array. A second custom task clears the investigate location when the guard arrives, so the tree falls back to Patrol.",
       "<strong>Perception:</strong> Sight Guards use the AI Perception sight sense. Every guard also uses the hearing sense. DogKnight's footsteps emit noise events from his movement input. He can also throw a ball that makes 	noise when it hits the ground, to lure guards away from their positions.",
