@@ -126,20 +126,27 @@ const projects = [
     ],
     gallery: []
   },
-  {
+    {
     id: "ai-perception",
-    title: "AI Perception",
-    studio: "Course Project",
-    dates: "TBD",
-    description: "Add a short description here once you've decided whether/how to showcase this AI perception work.",
-    tags: ["AI Perception", "Unreal Engine"],
-    media: { type: "image", src: "media/ai-perception-cover.jpg" },
+    title: "AI Perception: Stealth Guards",
+    studio: "Course project",
+    dates: "2 weeks",
+    description: "A stealth prequel scene for DogKnight Adventure, built in Unreal Engine 5. Two guard types use AI Perception, with sight and hearing, behaviour trees and a team alert system to patrol, investigate and chase the player.",
+    tags: ["AI Perception", "Behaviour Trees", "Blueprints", "Unreal Engine", "Stealth AI"],
+    media: { type: "youtube", src: "tn0Ccm_aN38" },
     link: "",
     linkLabel: "",
     featured: false,
     locked: false,
     details: [
-      "Add the longer write-up here."
+      "This is an AI guard system built in Unreal Engine 5 as a prequel scene to DogKnight Adventure, a dungeon crawler RPG. DogKnight must sneak through a night-time forest past patrolling guards before entering the dungeon. If 	a guard catches him, the level resets and he respawns at the start.",
+      "<strong>Two guard types:</strong> Sight Guards (blue glow) detect DogKnight visually and chase him. Hearing Guards (red glow) only react to sound and investigate where it came from. Both share a parent class, <em>	BP_Guard_Base</em>, but each type has its own Behaviour Tree, Blackboard and AI Controller.",
+      "<strong>Behaviour Trees:</strong> Both trees use a Selector at the root. The Sight Guard has three branches in priority order: Chase, Investigate and Patrol. The Hearing Guard has no Chase branch, so it can only 	investigate or patrol. Chase and Investigate are driven by Blackboard keys (EnemyActor and InvestigateLocation) with decorators that abort lower-priority branches. Patrol uses a custom task that picks a random point 	from each guard's own patrol points array. A second custom task clears the investigate location when the guard arrives, so the tree falls back to Patrol.",
+      "<strong>Perception:</strong> Sight Guards use the AI Perception sight sense. Every guard also uses the hearing sense. DogKnight's footsteps emit noise events from his movement input. He can also throw a ball that makes 	noise when it hits the ground, to lure guards away from their positions.",
+      "<strong>Team alert system:</strong> When a guard sees or hears something, it calls an <em>AlertAllGuards</em> function on the Game State. That function writes the location to the <em>InvestigateLocation</em> key on every 	guard's Blackboard, so the whole guard group investigates the same spot.",
+      "<strong>Scene:</strong> I built the forest from a downloaded asset and set up the lighting and sky for a night-time feel. The falling leaves and fireflies are from a free asset pack.",
+      "<strong>Known limitations:</strong> Guards sometimes block each other when they all go to the same location. The catch is a simple level reset instead of an animation. Guards can also freeze while DogKnight keeps moving 	inside their hearing range. I believe the cause is that the investigate location keeps updating, but I did not have time to fix it.",
+      "<strong>With more time:</strong> I would add a suspicion meter that fills up gradually before a guard starts chasing, a catch animation and game over screen, a range limit for the team alert, and real sound and animation."
     ],
     gallery: []
   }
