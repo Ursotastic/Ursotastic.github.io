@@ -298,3 +298,8 @@ a:hover { text-decoration: underline; }
   border: 0;
   display: block;
 }
+
+.detail-media img,
+.gallery-item img {
+  object-fit: contain;
+}
