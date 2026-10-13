@@ -77,7 +77,7 @@ const projects = [
     title: "DogKnight Adventure",
     studio: "Unity team project (course)",
     dates: "December 2025 - January 2026",
-    description: My first group project, built in Unity and C# over 5 weeks. I was the UI/HUD programmer and designer. I also built the experience system and redesigned the second ability for combat.",
+    description: "My first group project, built in Unity and C# over 5 weeks. I was the UI/HUD programmer and designer. I also built the experience system and redesigned the second ability for combat.",
     tags: ["Unity", "C#"],
     media: { type: "youtube", src: "1g0vwSOPTPw" },
     link: "",
